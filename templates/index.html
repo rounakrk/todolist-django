@@ -49,16 +49,43 @@
             placeholder="Enter the Task Name"
             aria-label="Enter the Task Name"
             aria-describedby="button-addon2"
+            name="task"
           />
-          <button
-            class="btn btn-success"
-            type="submit"
-            id="button-addon2"
-          >
+          <button class="btn btn-success" type="submit" id="button-addon2">
             Add
           </button>
         </div>
       </form>
+
+      <ol class="list-group list-group-numbered">
+        {% for todo in todos reversed %}
+        <li class="list-group-item">
+          {{todo}}<a
+            class="btn btn-danger float-end btn-sm"
+            href="delete/{{todo.id}}"
+            role="button"
+            >Delete</a
+          >
+        </li>
+        {% endfor %}
+      </ol>
+
+      {% comment %}
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">
+          An item<a
+            class="btn btn-danger float-end btn-sm"
+            href="#"
+            role="button"
+            >Delete</a
+          >
+        </li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+      </ol>
+      {% endcomment %}
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
